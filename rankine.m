@@ -6,7 +6,7 @@
 %
 %All required files for this script can be found in the software
 %repository:
-%https://doi.org/10.5281/zenodo.xxxxxxx
+%https://doi.org/10.5281/ZENODO.10207330
 % 
 %All parameters and results are in SI base units.
 %
@@ -133,6 +133,16 @@ plot(ax,[sSatL,sSatV],[TsatL,TsatV]-273.15,'k');
 hold(ax,'off');
 
 legend(ax,legItems,{'1\rightarrow2','2\rightarrow3','3\rightarrow4','4\rightarrow1'},'Location','best');
+
+
+annotation(fig,'arrow','HeadLength',5,'HeadWidth',5,...
+    'Units','centimeters','Position',[6,5,1,0],'Color','k');
+
+annotation(fig,'arrow','HeadLength',5,'HeadWidth',5,...
+    'Units','centimeters','Position',[6,5,0,1],'Color','k');
+
+text(ax,6.1,4.18,'s','Units','centimeters');
+text(ax,4.86,5.4,'T','Units','centimeters');
 
 
 ax.Visible='off';

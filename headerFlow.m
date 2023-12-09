@@ -6,7 +6,7 @@
 %
 %All required files for this script can be found in the software
 %repository:
-%https://doi.org/10.5281/zenodo.xxxxxxx
+%https://doi.org/10.5281/ZENODO.10207330
 % 
 %All parameters and results are in SI base units.
 %
@@ -119,11 +119,22 @@ function [pBot,pTop,z]=makeFig(T,figidx,figname)
     plot(ax,pBot.*10^-5,zRev);
     plot(ax,pTopStat.*10^-5,z,'Color',colors(1,:),'LineStyle','--');
     plot(ax,pBotStat.*10^-5,z,'Color',colors(2,:),'LineStyle','--');
+
+
+    pos=ax.Position;
+    x0=pos(1)+pos(3)/2;
+    y0=pos(2);
+
+    annotation(fig,'arrow','HeadLength',5,'HeadWidth',5,...
+        'Position',[x0,y0,0,pos(4)],'Color','k');
+
+    annotation(fig,'arrow','HeadLength',5,'HeadWidth',5,...
+        'Position',[x0,y0,pos(3)/2,0],'Color','k');
+
     
     hold(ax,'off');
     
     
-    xline(ax,pIn*10^-5);
     ax.XLim=[pIn-0.1e5,pIn+0.1e5].*10^-5;
     
     ax.Visible='off';

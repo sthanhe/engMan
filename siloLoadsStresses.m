@@ -6,7 +6,7 @@
 %
 %All required files for this script can be found in the software
 %repository:
-%https://doi.org/10.5281/zenodo.xxxxxxx
+%https://doi.org/10.5281/ZENODO.10207330
 % 
 %All parameters and results are in SI base units.
 %
@@ -110,33 +110,36 @@ colors=ax.ColorOrder;
 
 hold(ax,'on');
 
-plot(-n_x(:,[1,end]),coords.z,'Color',colors(1,:));
+plot(n.theta,coords.z,'Color',colors(3,:),'LineStyle','-.');
+
+plot(-n_x(:,1),coords.z,'Color',colors(1,:));
 plot(-n_x(:,idx),coords.z,'Color',colors(2,:));
+plot(-n_x(:,end),coords.z,'Color',colors(4,:));
 
-plot(n.theta,coords.z,'Color',colors(3,:));
-
-plot(n_xTheta(:,[1,end]),coords.z,'Color',colors(1,:),'LineStyle','--');
+plot(n_xTheta(:,1),coords.z,'Color',colors(1,:),'LineStyle','--');
 plot(n_xTheta(:,idx),coords.z,'Color',colors(2,:),'LineStyle','--');
+plot(n_xTheta(:,end),coords.z,'Color',colors(4,:),'LineStyle','--');
 
 
 legItems=repmat(line(),2,1);
-legItems(1)=plot(NaN,NaN,'Color',colors(1,:));
-legItems(2)=plot(NaN,NaN,'Color',colors(2,:));
-legItems(3)=plot(NaN,NaN,'Color','k','LineStyle','-');
-legItems(4)=plot(NaN,NaN,'Color','k','LineStyle','--');
-legItems(5)=plot(NaN,NaN,'Color',colors(3,:));
+legItems(1)=plot(NaN,NaN,'Color',colors(3,:),'LineStyle','-.');
+legItems(2)=plot(NaN,NaN,'Color',colors(1,:));
+legItems(3)=plot(NaN,NaN,'Color',colors(2,:));
+legItems(4)=plot(NaN,NaN,'Color',colors(4,:));
+legItems(5)=plot(NaN,NaN,'Color','k','LineStyle','-');
+legItems(6)=plot(NaN,NaN,'Color','k','LineStyle','--');
 
 hold(ax,'off');
 
 
 ax.YDir='reverse';
 
-legend(ax,legItems,{['z_p=',num2str(round(z_p(1),1)),' m | ',...
-                    num2str(round(z_p(end),1)),' m'],...
+legend(ax,legItems,{'n_{\theta}',...
+                    ['z_p=',num2str(round(z_p(1),1)),' m'],...
                     ['z_p=',num2str(round(z_pMax,1)),' m'],...
+                    ['z_p=',num2str(round(z_p(end),1)),' m'],...
                     '|n_z|',...
-                    'n_{z\theta}',...
-                    'n_{\theta}'},'Location','best');
+                    'n_{z\theta}'},'Location','northeast');
 
 xlabel(ax,'Stress resultant (N/m)');
 ylabel(ax,'z (m)');
@@ -234,7 +237,7 @@ plot(t_hop(filling),x(filling),'Color',colors(3,:));
 plot(t_hop(extr),x(extr),'Color',colors(4,:));
 
 
-yline(coords.z(end),'LineStyle',':');
+% yline(coords.z(end),'LineStyle',':');
 
 
 legItems=repmat(line(ax,'Visible','off'),3,1);
@@ -243,7 +246,6 @@ legItems(2)=plot(ax,NaN,NaN,'Color',colors(2,:),'LineStyle','--');
 legItems(3)=plot(ax,NaN,NaN,'Color',colors(3,:),'LineStyle','--');
 legItems(4)=plot(ax,NaN,NaN,'Color',colors(4,:),'LineStyle','--');
 legItems(5)=plot(ax,NaN,NaN,'Color','k');
-legItems(6)=plot(ax,NaN,NaN,'Color','k','LineStyle',':');
 
 legend(ax,legItems,{'LS1','LS3','Filling','Discharge','Critical','Transition'},'Location','best');
 
@@ -252,12 +254,13 @@ hold(ax,'off');
 
 ax.YDir='reverse';
 ax.YLim=[0,max(x)];
+ax.YAxis.Visible='off';
 
 xlabel(ax,'Wall thickness (m)');
 ylabel(ax,'z (m)');
 
 fig.Units='centimeters';
-fig.Position=[10,5,17,8.5];
+fig.Position=[10,5,17,8.28];
 
 exportgraphics(fig,['Figures',filesep,'silo_critWallThickness.tiff']);
 

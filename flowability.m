@@ -6,7 +6,7 @@
 %
 %All required files for this script can be found in the software
 %repository:
-%https://doi.org/10.5281/zenodo.xxxxxxx
+%https://doi.org/10.5281/ZENODO.10207330
 % 
 %All parameters and results are in SI base units.
 %
@@ -64,7 +64,7 @@ ax.YTick=[];
 ax.YTickLabel=[];
 
 
-legend(ax,{'\sigma_c(t_0)','\sigma_c(t_1)','ff_c=1','ff_c=2'},'Location','north');
+legend(ax,{'\sigma_c @ t_0','\sigma_c @ t_1','ff_c=1','ff_c=2'},'Location','north');
 
 
 xlabel(ax,'Consolidation stress \sigma_1');

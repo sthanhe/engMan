@@ -6,7 +6,7 @@
 %
 %All required files for this class can be found in the software
 %repository:
-%https://doi.org/10.5281/zenodo.xxxxxxx
+%https://doi.org/10.5281/ZENODO.10207330
 % 
 %All parameters and results are in SI base units.
 %

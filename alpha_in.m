@@ -5,7 +5,7 @@
 %
 %All required files for this function can be found in the software
 %repository:
-%https://doi.org/10.5281/zenodo.xxxxxxx
+%https://doi.org/10.5281/ZENODO.10207330
 % 
 %All parameters and results are in SI base units.
 %
@@ -15,7 +15,7 @@
 %Gnielinski. It is a slightly modified copy of the same function in the
 %heat exchanger calculation class (see the documentation there):
 %
-% Link Github
+%https://github.com/sthanhe/hexcalc
 %
 %
 %Requires all auxiliary classes and functions on the MATLAB path
